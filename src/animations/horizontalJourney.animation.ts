@@ -31,7 +31,7 @@ export const createHorizontalJourney = (
     const getDistance = () => {
         return Math.max(
             0,
-            spillContainer.scrollWidth - window.innerWidth 
+            spillContainer.scrollWidth - outerContainer.clientWidth 
         );
 
     };
