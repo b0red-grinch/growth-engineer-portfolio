@@ -1,4 +1,4 @@
-import { gsap, SplitText, ScrollTrigger } from "./gsap";
+import { gsap, SplitText } from "./gsap";
 import gearsVideo from "../assets/gears.mp4";
 
 export const createBuildWordAnimation = () => {

@@ -1,4 +1,4 @@
-import { gsap,ScrollTrigger } from "./gsap";
+import { gsap } from "./gsap";
 
 export const createVideoScrollAnimation = () => {
     if (window.matchMedia("(pointer: coarse)").matches) {
