@@ -1,4 +1,4 @@
-import { gsap, SplitText } from "./gsap";
+import { gsap, SplitText, ScrollTrigger } from "./gsap";
 import gearsVideo from "../assets/gears.mp4";
 
 export const createBuildWordAnimation = () => {
@@ -112,5 +112,6 @@ export const createBuildWordAnimation = () => {
           });
       },
     });
+    // ScrollTrigger.refresh();
   });
 };

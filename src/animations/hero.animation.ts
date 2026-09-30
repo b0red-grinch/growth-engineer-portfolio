@@ -1,9 +1,10 @@
 import { gsap, SplitText } from "./gsap";
+import { ScrollTrigger } from "./gsap";
 
 export const createHeroTextAnimation = (container: HTMLElement | null) => {
   if (!container) return;
 
-  document.fonts.ready.then(() => {
+  // document.fonts.ready.then(() => {
     const boxes = gsap.utils.toArray<HTMLElement>(".box-content");
 
     boxes.forEach((box) => {
@@ -25,9 +26,9 @@ export const createHeroTextAnimation = (container: HTMLElement | null) => {
                 trigger: box,
                 start: "-400% 0%",
               },
-              onComplete: () => {
-                self.revert();
-              },
+              // onComplete: () => {
+              //   self.revert();
+              // },
             });
           },
         });
@@ -54,12 +55,14 @@ export const createHeroTextAnimation = (container: HTMLElement | null) => {
               trigger: box,
               start: "-400% 0%",
             },
-            onComplete: () => {
-              self.revert();
-            },
+            // onComplete: () => {
+            //   self.revert();
+            // },
           });
         },
       });
     });
-  });
+
+    // ScrollTrigger.refresh();
+  // });
 };

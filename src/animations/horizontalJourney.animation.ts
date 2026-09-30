@@ -79,7 +79,7 @@ export const createHorizontalJourney = (
 
                     // Move character across the journey
                     const characterDistance =
-                        spillContainer.scrollWidth - window.innerWidth;
+                        getDistance();
 
                     gsap.set(character, {
                         x: self.progress * characterDistance,

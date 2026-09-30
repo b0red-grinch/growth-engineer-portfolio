@@ -29,7 +29,7 @@
 
 .header img{
   width: 130px;
-  padding: 10px;
+  padding: 5px;
 }
 
 h1 {
@@ -49,7 +49,7 @@ h1 {
 .box {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100svh;
 
   display: flex;
   justify-content: center;
@@ -138,6 +138,20 @@ h1 {
   color: black;
 }
 
+@media (max-width: 768px) {
+  .box-content-2 {
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  .box-content-2 h2 {
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1;
+  }
+}
+
 .box-content-3 h2 {
   /* margin: 0 0 8px; */
   font-size: clamp(2rem, 4vw, 6rem);
@@ -155,6 +169,36 @@ h1 {
   padding-top: 20px;
   padding-left: 15px;
   border-left: 1px solid white;
+}
+
+@media (max-width: 768px) {
+  .box-content {
+    left: 0;
+    right: 0;
+    bottom: 40px;
+
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .box-content h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .box-content p {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  #points {
+    padding-top: 0;
+    padding-left: 12px;
+  }
 }
 
 .outside-box-content {
@@ -338,6 +382,7 @@ h1 {
   display: flex;
   border-top: 1px solid var(--border);
   text-align: left;
+  font-family: "Manrope";
   z-index: 6;
 
   &>div {
@@ -351,17 +396,24 @@ h1 {
 
   #top .header img.icon {
     /* margin-bottom: 16px; */
-    width: 22px !important;
-    height: 22px !important;
+    width: 12px;
+    height: 12px;
     object-fit: contain;
+    border: 2px solid white;
     ;
   }
+
 
   @media (max-width: 1024px) {
     flex-direction: column;
     text-align: center;
   }
 }
+
+  #next-steps .icon {
+    width: 45px;
+    height:  45px;
+  }
 
 #docs {
   border-right: 1px solid var(--border);
@@ -370,6 +422,10 @@ h1 {
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
+}
+
+#next-steps h2 {
+  font-family: "Manrope";
 }
 
 #next-steps ul {
@@ -559,13 +615,13 @@ h1 {
 .spill-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
 }
 
 .spill-box {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   z-index: 5;
 }
 
@@ -577,7 +633,7 @@ h1 {
   font-family: 'Manrope';
   /* gap: 50px; */
   align-items: center;
-  height: 100vh;
+  height: 100svh;
   font-weight: 600;
   margin-left: 0;
   /* border: 2px solid green; */
@@ -644,13 +700,20 @@ h1 {
 
 .walk-card-effect {
   position: fixed;
-  width: 500px;
+  width: 100vw;
   inset: 0;
   z-index: 4;
   /* top: -100%; */
   /* border: 2px solid red; */
   pointer-events: none;
   /* overflow: visible; */
+}
+
+@media (max-width: 768px) {
+  .walking-character {
+    top: 55%;
+    height: 45%;
+  }
 }
 
 .walking-character {
@@ -696,22 +759,70 @@ h1 {
   pointer-events: none;
 }
 
-.journey-step {
+/* .journey-step {
     width: 500px;
   flex: 0 0 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 2px solid blue */
-}
+} */
 
-.journey-arrow {
+/* .journey-arrow {
   width: 300px;
-  /* border: 2px solid red; */
   flex: 0 0 300px;
   display: flex;
   align-items: center;
   justify-content: center;
+} */
+
+/* .journey-step {
+  width: clamp(280px, 35vw, 500px);
+  flex: 0 0 clamp(280px, 35vw, 500px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journey-arrow {
+  width: clamp(100px, 20vw, 300px);
+  flex: 0 0 clamp(100px, 20vw, 300px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.journey-step {
+  width: min(500px, 85vw);
+  flex: 0 0 min(500px, 85vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journey-arrow {
+  width: min(300px, 25vw);
+  flex: 0 0 min(300px, 25vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .journey-step {
+    width: 280px;
+    flex-basis: 280px;
+  }
+
+  .journey-arrow {
+    width: 100px;
+    flex-basis: 100px;
+  }
+
+  .box-content-3 h2 {
+    font-size: clamp(1.75rem, 8vw, 3rem);
+  }
 }
 
 

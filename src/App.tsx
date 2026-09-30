@@ -4,7 +4,7 @@ import {
 } from "react";
 
 //animations
-import { useGSAP } from "./animations/gsap";
+import { useGSAP, ScrollTrigger } from "./animations/gsap";
 
 import video from "./assets/hero-shapes-1.mp4";
 import logo from "./assets/name-logo.svg";
@@ -38,18 +38,36 @@ function App() {
     initializeLenisScroll();
   });
 
+//   useGSAP(() => {
+//   console.log("SCROLL POSITION:", window.scrollY);
+
+//   console.log("touch", ScrollTrigger.isTouch)
+
+//   const update = () => {
+//     console.log("scroll:", window.scrollY);
+//   };
+
+//   window.addEventListener("scroll", update);
+
+//   return () => {
+//     window.removeEventListener("scroll", update);
+//   };
+// });
+
+
+
   //video animation
   useGSAP(() => {
     createVideoScrollAnimation();
   });
 
-  //split text animation
-  //hero text
+  // split text animation
+  // hero text
   useGSAP(
     () => {
       createHeroTextAnimation(container.current);
     },
-    { scope: container },
+    // { scope: container },
   );
 
   //second frame
@@ -202,7 +220,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section journey-scroll-section>
+      <section className="journey-scroll-section">
         <div
           className="spill-box"
           style={{ backgroundColor: "black" }}
@@ -333,7 +351,7 @@ function App() {
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
           </svg>
-          <h2> Read my blogs on Medium </h2>
+          <h2> Read my blogs </h2>
           <p> When I'm not writing code, I'm writing about tech </p>
           <ul>
             <li>
@@ -355,7 +373,7 @@ function App() {
             <use href="/icons.svg#social-icon"></use>
           </svg>
           <h2>Connect with me</h2>
-          <p>Let's build crazy stuff</p>
+          <p>Let's build the future together</p>
           <ul>
             <li>
               <a href="https://github.com/b0red-grinch" target="_blank">
@@ -370,7 +388,7 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="https://chat.vite.dev/" target="_blank">
+              <a href="https://www.linkedin.com/in/raphael-esezobor-a992aa240/" target="_blank">
                 <img
                   className="button-icon"
                   role="presentation"

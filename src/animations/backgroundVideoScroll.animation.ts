@@ -1,6 +1,9 @@
-import { gsap } from "./gsap";
+import { gsap,ScrollTrigger } from "./gsap";
 
 export const createVideoScrollAnimation = () => {
+    if (window.matchMedia("(pointer: coarse)").matches) {
+    return;
+  }
   const video = document.getElementById("bg-video") as HTMLVideoElement | null;
 
   if (!video) return;
@@ -25,6 +28,7 @@ export const createVideoScrollAnimation = () => {
 
   video.addEventListener("loadedmetadata", setupVideo);
 
+  // ScrollTrigger.refresh();
   return () => {
     video.removeEventListener("loadedmetadata", setupVideo);
   };
