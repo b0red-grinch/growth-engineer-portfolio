@@ -4,7 +4,7 @@ import {
 } from "react";
 
 //animations
-import { useGSAP, ScrollTrigger } from "./animations/gsap";
+import { useGSAP } from "./animations/gsap";
 
 import video from "./assets/hero-shapes-1.mp4";
 import logo from "./assets/name-logo.svg";

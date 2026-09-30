@@ -1,5 +1,4 @@
 import { gsap, SplitText } from "./gsap";
-import { ScrollTrigger } from "./gsap";
 
 export const createHeroTextAnimation = (container: HTMLElement | null) => {
   if (!container) return;

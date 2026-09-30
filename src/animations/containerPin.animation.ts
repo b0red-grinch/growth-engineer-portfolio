@@ -5,7 +5,7 @@ export const createBoxPinAnimations = () => {
 
   console.log("INITIAL SCROLL:", window.scrollY);
 
-  boxes.forEach((box, index) => {
+  boxes.forEach((box) => {
     // console.log(`Creating box pin ${index}`, {
     //   height: box.offsetHeight,
     //   top: box.getBoundingClientRect().top,
