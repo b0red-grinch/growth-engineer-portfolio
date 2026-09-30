@@ -1,4 +1,5 @@
 import { gsap, SplitText } from "./gsap";
+import gearsVideo from "../assets/gears.mp4";
 
 export const createBuildWordAnimation = () => {
   document.fonts.ready.then(() => {
@@ -35,7 +36,7 @@ export const createBuildWordAnimation = () => {
 
         if (!videoElement) {
           videoElement = document.createElement("video");
-          videoElement.src = "/src/assets/gears.mp4";
+          videoElement.src = gearsVideo;
           videoElement.muted = true;
           videoElement.loop = true;
           videoElement.playsInline = true;
