@@ -5,4 +5,10 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
+ScrollTrigger.config({ ignoreMobileResize: true });
+
+if (window.matchMedia("(pointer: coarse)").matches) {
+  ScrollTrigger.normalizeScroll(true);
+}
+
 export { gsap, useGSAP, ScrollTrigger, SplitText };

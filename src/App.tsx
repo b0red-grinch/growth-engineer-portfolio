@@ -24,6 +24,7 @@ import {
   WalkingCharacter,
   type WalkingCharacterHandle,
 } from "./components/Hero/walking-character";
+import { refreshAfterAssets } from "./helpers/refreshAssets";
 
 function App() {
   //reference APIs
@@ -87,6 +88,12 @@ function App() {
     },
     { scope: spillBox, dependencies: [] },
   );
+
+  useGSAP(
+    () => {
+      refreshAfterAssets();
+    }
+  )
 
   // useGSAP(
   //   () => {

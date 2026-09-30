@@ -20,6 +20,7 @@ export const createBoxPinAnimations = () => {
       pinSpacing: false,
       scrub: true,
       invalidateOnRefresh: true,
+      markers: true
 
       // onEnter: () => {
       //   console.log(`BOX ${index} ENTER`);
