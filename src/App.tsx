@@ -10,8 +10,7 @@ import video from "./assets/hero-shapes-1.mp4";
 import logo from "./assets/name-logo.svg";
 import linkedInLogo from "./assets/linkedIn-icon.svg";
 import mediumLogo from "./assets/medium-logo.svg";
-import viteLogo from "./assets/vite.svg";
-import reactLogo from "./assets/react.svg";
+
 import "./App.css";
 import { JourneyArrow } from "./assets/journey-arrow";
 import { createVideoScrollAnimation } from "./animations/backgroundVideoScroll.animation";
@@ -20,7 +19,7 @@ import { createBuildWordAnimation } from "./animations/buildWordFlip.animation";
 import { createBoxPinAnimations } from "./animations/containerPin.animation";
 import { createJourneyAnimations } from "./animations/journey.animation";
 import { initializeLenisScroll } from "./animations/lenisScroll";
-import { createCustomerBadgeAnimation } from "./animations/customerWord.animation";
+
 import {
   WalkingCharacter,
   type WalkingCharacterHandle,

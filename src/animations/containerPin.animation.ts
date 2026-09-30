@@ -1,4 +1,4 @@
-import { gsap, ScrollTrigger } from "./gsap";
+import { gsap } from "./gsap";
 
 export const createBoxPinAnimations = () => {
   const boxes = gsap.utils.toArray<HTMLElement>(".box");
