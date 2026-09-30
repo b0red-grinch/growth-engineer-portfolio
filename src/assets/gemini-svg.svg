@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="100%" height="100%">
+  <!-- Background provided for preview visibility -->
+  <rect width="200" height="100" fill="#121212" />
+
+  <!-- The main geometric arrow shape -->
+  <!-- Extra points along the shaft and asymmetrical angles create the hand-drawn wobble -->
+  <path 
+    d="M 12 43 
+       L 70 41 
+       L 135 45 
+       L 133 24 
+       L 188 53 
+       L 140 84 
+       L 141 62 
+       L 80 65 
+       L 15 58 
+       Z" 
+    fill="black" 
+    stroke="white" 
+    stroke-width="3" 
+    stroke-linejoin="round" 
+    stroke-linecap="round"
+  />
+</svg>
