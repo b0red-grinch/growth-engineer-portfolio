@@ -7,9 +7,9 @@ export const initializeLenisScroll = () => {
     //disable for touch devices
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
-    if (isTouchDevice) {
-        return;
-    }
+    // if (isTouchDevice) {
+    //     return;
+    // }
     const lenis = new Lenis();
 
     lenis.on("scroll", ScrollTrigger.update);

@@ -1,5 +1,5 @@
 import type { WalkingCharacterHandle } from "../components/Hero/walking-character";
-import { gsap } from "./gsap"
+import { gsap, ScrollTrigger } from "./gsap"
 
 export const createHorizontalJourney = (
     spillBox: React.RefObject<HTMLDivElement | null>,
@@ -7,13 +7,12 @@ export const createHorizontalJourney = (
     walkingCharacterRef: React.RefObject<WalkingCharacterHandle | null>
 ) => {
 
-
     const outerContainer = spillBox.current
 
     if (!outerContainer) return;
-    
+
     const spillContainer =
-    outerContainer.querySelector<HTMLElement>(".box-content-3");
+        outerContainer.querySelector<HTMLElement>(".box-content-3");
     if (!spillContainer) return;
 
     const character = characterRef.current;
@@ -27,16 +26,43 @@ export const createHorizontalJourney = (
     outerContainer.scrollLeft = 0;
     gsap.set(spillContainer, { x: 0 });
 
+    // watch for size changes in DOM and refresh scrollTrigger calculations if detected
+    let timer: number;
+
+    const ro = new ResizeObserver(() => {
+        clearTimeout(timer);
+
+        timer = window.setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 100);
+    });
+
+    [spillContainer, ...Array.from(spillContainer.children)].forEach((el) => {
+        ro.observe(el as Element);
+    });
+
 
     const getDistance = () => {
         return Math.max(
             0,
-            spillContainer.scrollWidth - outerContainer.clientWidth 
+            spillContainer.scrollWidth - outerContainer.clientWidth
         );
-
     };
-
-    // const walkCard = spillBox.current.querySelector<HTMLElement>(
+    // const last = spillContainer.lastElementChild as HTMLElement;
+    const cards = [...spillContainer.querySelectorAll<HTMLElement>(".box-item")];
+    console.table({
+        viewport: window.innerWidth,
+        pinnedWidth: outerContainer.clientWidth,
+        stripBox: spillContainer.offsetWidth,
+        stripScroll: spillContainer.scrollWidth,
+        cardsTotal: cards.reduce((sum, c) => sum + c.offsetWidth, 0),
+        lastCardRight:
+            cards[cards.length - 1].getBoundingClientRect().right -
+            spillContainer.getBoundingClientRect().left,
+        measuredDistance: getDistance(),
+        hardCodedThatWorked: 6500, // put your number here
+    });
+    // const walkCard = outerContainer.querySelector<HTMLElement>(
     //     ".walk-card-effect"
     // );
 
@@ -58,7 +84,7 @@ export const createHorizontalJourney = (
             x: 0,
         },
         {
-            // x: () => -3000,
+        //     x: () => -6500,
             x: () => -getDistance(),
             ease: "none",
             scrollTrigger: {
@@ -69,6 +95,7 @@ export const createHorizontalJourney = (
                 pin: outerContainer,
                 scrub: true,
                 invalidateOnRefresh: true,
+                refreshPriority: 1,
                 // markers: true,
 
                 onUpdate: (self) => {

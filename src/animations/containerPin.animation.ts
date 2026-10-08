@@ -3,8 +3,6 @@ import { gsap, ScrollTrigger } from "./gsap";
 export const createBoxPinAnimations = () => {
   const boxes = gsap.utils.toArray<HTMLElement>(".box");
 
-  console.log("INITIAL SCROLL:", window.scrollY);
-
   boxes.forEach((box) => {
     // console.log(`Creating box pin ${index}`, {
     //   height: box.offsetHeight,
@@ -20,7 +18,7 @@ export const createBoxPinAnimations = () => {
       pinSpacing: false,
       scrub: true,
       invalidateOnRefresh: true,
-      markers: true
+      // markers: true
 
       // onEnter: () => {
       //   console.log(`BOX ${index} ENTER`);

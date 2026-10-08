@@ -32,6 +32,7 @@ function App() {
   const spillBox = useRef<HTMLDivElement>(null);
   const characterRef = useRef<HTMLDivElement | null>(null);
   const walkingCharacterRef = useRef<WalkingCharacterHandle | null>(null);
+  const staggeredTextContainer = useRef<HTMLDivElement>(null);
 
   //lenis scroll
   //smooth scrolling
@@ -68,12 +69,12 @@ function App() {
     () => {
       createHeroTextAnimation(container.current);
     },
-    // { scope: container },
+    { scope: container },
   );
 
   //second frame
   useGSAP(() => {
-    createBuildWordAnimation();
+    createBuildWordAnimation(staggeredTextContainer.current);
   });
 
   //trigger box scroll animations
@@ -217,7 +218,7 @@ function App() {
           </div> */}
         </div>
 
-        <div className="box" style={{ backgroundColor: "transparent" }}>
+        <div className="box" style={{ backgroundColor: "transparent" }}  ref={staggeredTextContainer}>
           <div className="box-content-2">
             <h2 className="split-2">
               I build reliable systems behind products; from APIs and
@@ -358,8 +359,8 @@ function App() {
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
           </svg>
-          <h2> Read my blogs </h2>
-          <p> When I'm not writing code, I'm writing about tech </p>
+          <h2> Check out my blogs </h2>
+          <p> When I'm not building software, I'm writing about it.</p>
           <ul>
             <li>
               <a href="https://medium.com/me/stories?tab=posts-published" target="_blank">

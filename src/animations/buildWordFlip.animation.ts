@@ -1,7 +1,7 @@
 import { gsap, SplitText } from "./gsap";
 import gearsVideo from "../assets/gears.mp4";
 
-export const createBuildWordAnimation = () => {
+export const createBuildWordAnimation = (container: HTMLElement | null) => {
   document.fonts.ready.then(() => {
     const box = document.getElementsByClassName("box-content-2")[0] as HTMLElement | undefined;
     const splitText = box?.querySelector<HTMLElement>(".split-2");
@@ -20,7 +20,7 @@ export const createBuildWordAnimation = () => {
 
         const positionVideo = () => {
           const wordRect = buildWord.getBoundingClientRect();
-          const containerRect = container.getBoundingClientRect();
+          const containerRect = box.getBoundingClientRect();
 
           gsap.set(videoElement, {
             left: wordRect.left - containerRect.left,
@@ -30,9 +30,7 @@ export const createBuildWordAnimation = () => {
           });
         };
 
-        const container = box;
-
-        let videoElement = container.querySelector<HTMLVideoElement>(".build-video");
+        let videoElement = box.querySelector<HTMLVideoElement>(".build-video");
 
         if (!videoElement) {
           videoElement = document.createElement("video");
@@ -41,7 +39,7 @@ export const createBuildWordAnimation = () => {
           videoElement.loop = true;
           videoElement.playsInline = true;
           videoElement.classList.add("build-video");
-          container.appendChild(videoElement);
+          box.appendChild(videoElement);
         }
 
         positionVideo();
@@ -58,9 +56,10 @@ export const createBuildWordAnimation = () => {
             from: "center",
           },
           scrollTrigger: {
-            trigger: box,
-            start: "-20% 0%",
+            trigger: container,
+            start: "top top",
             end: "bottom",
+            // markers: true
           },
         });
 
@@ -71,8 +70,8 @@ export const createBuildWordAnimation = () => {
           delay: 2,
           ease: "back.out",
           scrollTrigger: {
-            trigger: box,
-            start: "-20% 0%",
+            trigger: container,
+            start: "top top",
           },
         });
 
@@ -82,7 +81,7 @@ export const createBuildWordAnimation = () => {
           delay: 3.7,
           repeatDelay: 1.15,
           scrollTrigger: {
-            trigger: box,
+            trigger: container,
             start: "-20% 0%",
             end: "bottom",
           },
@@ -112,6 +111,5 @@ export const createBuildWordAnimation = () => {
           });
       },
     });
-    // ScrollTrigger.refresh();
   });
 };

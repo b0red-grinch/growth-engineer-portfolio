@@ -117,7 +117,7 @@ h1 {
   /* left: 2%;
   bottom: 100px; */
   max-width: 100%;
-  border: 2px solid black;
+  /* border: 2px solid green; */
   font-family: 'Manrope';
   flex: 1;
   font-weight: 600;
@@ -380,7 +380,7 @@ h1 {
 
 #next-steps {
   display: flex;
-  border-top: 1px solid var(--border);
+  /* border-top: 1px solid var(--border); */
   text-align: left;
   font-family: "Manrope";
   z-index: 6;
@@ -416,7 +416,7 @@ h1 {
   }
 
 #docs {
-  border-right: 1px solid var(--border);
+  /* border-right: 1px solid var(--border); */
 
   @media (max-width: 1024px) {
     border-right: none;
@@ -426,6 +426,7 @@ h1 {
 
 #next-steps h2 {
   font-family: "Manrope";
+  color: white;
 }
 
 #next-steps ul {
@@ -682,12 +683,12 @@ h1 {
 }
 
 .box-item {
-  /* flex: 0 0 100vw; */
+  flex: 0 0 auto;
   /* flex-shrinK: 0; */
   color: white;
   position: relative;
   /* border: 2px solid blue; */
-  width: 100%
+  width: 100%;
 
 }
 
