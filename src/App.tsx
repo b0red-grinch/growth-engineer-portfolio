@@ -28,6 +28,7 @@ import { refreshAfterAssets } from "./helpers/refreshAssets";
 
 function App() {
   //reference APIs
+  const logoRef = useRef<HTMLImageElement | null>(null);  
   const container = useRef(null);
   const spillBox = useRef<HTMLDivElement>(null);
   const characterRef = useRef<HTMLDivElement | null>(null);
@@ -98,10 +99,10 @@ function App() {
 
   // useGSAP(
   //   () => {
-  //     createCustomerBadgeAnimation()
-  //   },
-  //   // { scope: container },
-  // );
+  // //     createCustomerBadgeAnimation()
+  // //   },
+  // //   // { scope: container },
+  // // );
 
   //   gsap.to(logoRef.current, {
   //     rotation: 360,
@@ -168,7 +169,7 @@ function App() {
       <section id="top">
         <div className="header">
           <img
-            // ref={logoRef}
+            ref={logoRef}
             // src="https://toast.ng/wp-content/uploads/2022/02/Toast-White-Logo.svg"
             src={logo}
             //{sailorWheel}
